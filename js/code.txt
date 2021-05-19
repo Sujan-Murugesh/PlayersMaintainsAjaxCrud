@@ -1,0 +1,21 @@
+function getplayers() {
+   var pageno =$('#currentpage').val();
+   $.ajax({
+      url: "/Ajax%20Projects/PlayersMaintainsAjaxCrud/ajax.php",
+      type: "GET",
+      dataType: "json",
+      data: {page: pageno, action: "getusers" },
+      beforeSend: function() {
+         //$("#overlay").fadeIn();
+      },
+      success: function(players) {
+         if(players){
+            console.log(players);
+         }
+      },
+      error : function() {
+         console.log("Somethig went wrong!");
+         
+      },
+   });
+}
